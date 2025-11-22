@@ -66,7 +66,8 @@ def count_down(count):
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
-window.title=("Pomodoro Timer")
+window.title("Pomodoro Timer")
+
 window.config(padx=100, pady=50, bg=YELLOW)
 
 canvas = Canvas(width=200, height=224, background=YELLOW, highlightthickness=0)
