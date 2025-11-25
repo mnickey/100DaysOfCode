@@ -30,6 +30,24 @@ def generate_password():
 
     pyperclip.copy(password)
 
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
+def find_password():
+    website = website_entry.get()
+    try:
+        with open('data.json', 'r') as data_file:
+            # Read the old data if available
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showinfo("Error", "No data file found")
+    else:
+        if website in data:
+            email = data[website]['email']
+            password = data[website]['password']
+            messagebox.showinfo(title="Success", message=f"Username: {email}\n Password: {password}")
+        else:
+            messagebox.showinfo("Error", f"No details for {website} exist.")
+
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
 
@@ -45,7 +63,6 @@ def save():
 
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo("Error", "Please fill all fields")
-
     else:
         try:
             with open('data.json', 'r') as data_file:
@@ -53,7 +70,7 @@ def save():
                 data = json.load(data_file)
         except FileNotFoundError:
             with open('data.json', 'w') as data_file:
-                data.dump(new_data, data_file, indent=4)
+                json.dump(new_data, data_file, indent=4)
         else:
             # Updating old data with new data
             data.update(new_data)
@@ -89,8 +106,8 @@ password_label = Label(window, text="Password:", bg='white')
 password_label.grid(row=3, column=0)
 
 # ---------- ENTRYS ---------- #
-website_entry = Entry(width=35)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(width=17)
+website_entry.grid(row=1, column=1)
 website_entry.focus()
 
 email_entry = Entry(width=35)
@@ -106,5 +123,8 @@ add_button.grid(row=4, column=1, columnspan=2)
 
 generate_button = Button(text="Generate Password", command=generate_password)
 generate_button.grid(row=3, column=2)
+
+search_button = Button(text="Search", command=find_password, width=13)
+search_button.grid(row=1, column=2)
 
 window.mainloop()
