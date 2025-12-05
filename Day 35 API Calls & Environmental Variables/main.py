@@ -3,7 +3,7 @@
 # # API Endpoint Example:
 # # https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
-# API Key: ab0405b89fa42652b6c4b2e84e122c4c
+# API Key: YOUR_API_KEY_HERE
 LAT = 37.550201
 LONG = -121.980827
 
