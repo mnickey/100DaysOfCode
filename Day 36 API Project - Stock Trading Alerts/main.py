@@ -52,8 +52,8 @@ if percentage_difference >= 0.5:
     for item in news_list_comp:
         title = item['headline'].encode('utf-8')
         description = item['description'].encode('utf-8')
-        python_email = os.getenv('PYTHON_EMAIL')
-        app_password = os.getenv("APP_PASSWORD")
+        python_email = os.getenv('PYTHON_EMAIL') # Make sure you have set your env variable before calling it
+        app_password = os.getenv("APP_PASSWORD") # Make sure you have set your env variable before calling it
 
         with smtplib.SMTP('smtp.gmail.com', 587) as connection:
             connection.starttls()
