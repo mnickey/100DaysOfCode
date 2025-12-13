@@ -3,7 +3,7 @@ from datetime import datetime
 import time
 
 USERNAME = "zendakin"
-TOKEN = "w#yAE4!U5%SECyd"
+TOKEN = "ENTER YOUR TOKEN HERE"
 GRAPH_ID = "graph1"
 
 # USER ENDPOINT
