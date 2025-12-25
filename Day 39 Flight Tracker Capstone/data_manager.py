@@ -19,7 +19,9 @@ class DataManager:
 
         SHEET_INPUTS = {
             "prices": {
-                "City":
+                "City": "Testing City",
+                "IATA Code": "Testing Code",
+                "Lowest Price": 940
             }
         }
 
