@@ -64,9 +64,11 @@ class FlightSearch:
             # If returnDate is omitted, it defaults to one-way.
             # "returnDate": to_time.strftime("%Y-%m-%d"),
             "adults": 1,
-            "currencyCode": "GBP",
+            # "currencyCode": "GBP",
+            "currencyCode": "USD",
             "max": 1,  # We only need the cheapest one
             "nonStop": "true"
+            # "nonStop": "false"
         }
 
         response = requests.get(url=FLIGHT_ENDPOINT, headers=headers, params=query)
